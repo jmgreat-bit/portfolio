@@ -10,6 +10,7 @@ export async function getProjects() {
         slug: project.slug,
         ...project.entry,
         status: (project.entry.status as "live" | "building" | "idea") || "building",
+        title: typeof project.entry.title === 'string' ? { name: project.entry.title } : project.entry.title,
         tags: (project.entry.tags || []) as readonly string[],
         link: project.entry.link || undefined,
         image: project.entry.image || undefined,
