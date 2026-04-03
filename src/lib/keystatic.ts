@@ -10,7 +10,7 @@ export async function getProjects() {
         slug: project.slug,
         ...project.entry,
         status: (project.entry.status as "live" | "building" | "idea") || "building",
-        tags: (project.entry.tags || []) as string[],
+        tags: (project.entry.tags || []) as readonly string[],
         link: project.entry.link || undefined,
         image: project.entry.image || undefined,
         videoUrl: project.entry.videoUrl || undefined,
@@ -25,7 +25,7 @@ export async function getInsights() {
         slug: insight.slug,
         title: insight.entry.title,
         date: insight.entry.date,
-        tags: (insight.entry.tags || []) as string[],
+        tags: (insight.entry.tags || []) as readonly string[],
         featuredImage: insight.entry.featuredImage || undefined,
         videoUrl: insight.entry.videoUrl || undefined,
         // Note: content is excluded here as it's a function that can't be passed to client components
@@ -38,7 +38,7 @@ export async function getInsight(slug: string) {
     if (!insight) return null;
     return {
         ...insight,
-        tags: (insight.tags || []) as string[],
+        tags: (insight.tags || []) as readonly string[],
     };
 }
 
@@ -91,12 +91,12 @@ export async function getAboutData() {
         return {
             pageTitle: 'The Story',
             story: null,
-            skills: [],
+            skills: [] as readonly string[],
             profileImage: undefined,
             timeline: [
                 { year: '2025', title: 'The Genius Era', description: 'Launched this portfolio. Started building autonomous design agents.' },
                 { year: '2024', title: 'Senior Engineer', description: 'Led frontend architecture at TechCorp. Mastered Next.js and WebGL.' },
-            ],
+            ] as const,
         };
     }
     return about;
