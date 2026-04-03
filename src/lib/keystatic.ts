@@ -23,7 +23,7 @@ export async function getInsights() {
     const insights = await reader.collections.insights.all();
     return insights.map((insight) => ({
         slug: insight.slug,
-        title: insight.entry.title,
+        title: typeof insight.entry.title === 'string' ? { name: insight.entry.title } : insight.entry.title,
         date: insight.entry.date,
         tags: (insight.entry.tags || []) as readonly string[],
         featuredImage: insight.entry.featuredImage || undefined,
@@ -47,7 +47,7 @@ export async function getPublicProgress() {
     const updates = await reader.collections.progress.all();
     return updates.map((update) => ({
         slug: update.slug,
-        title: update.entry.title,
+        title: typeof update.entry.title === 'string' ? { name: update.entry.title } : update.entry.title,
         date: update.entry.date,
         status: update.entry.status || 'in-progress',
         image: update.entry.image || undefined,
