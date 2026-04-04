@@ -3,12 +3,14 @@ import { config, fields, collection, singleton } from '@keystatic/core';
 export default config({
     storage: process.env.NODE_ENV === 'production'
         ? {
-            kind: 'github',
-            repo: 'jmgreat/portfolio', // Will be updated after GitHub repo creation
+            kind: 'cloud',
         }
         : {
             kind: 'local',
         },
+    cloud: {
+        project: 'jmgreat-bit/portfolio-admin',
+    },
     collections: {
         insights: collection({
             label: 'Insights (Blog)',
