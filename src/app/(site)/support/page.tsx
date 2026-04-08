@@ -23,19 +23,19 @@ export default function SupportPage() {
             <WebGLBackground />
             <Header />
 
-            <div className="flex-grow flex items-center justify-center px-4 sm:px-6 pt-32 pb-20 relative z-10 w-full">
-                <div className="max-w-4xl w-full flex flex-col items-center">
+            <div className="flex-grow flex flex-col px-4 pt-32 md:pt-40 pb-12 w-full max-w-4xl mx-auto items-center">
+                <div className="w-full flex-grow flex flex-col items-center">
                     
                     {/* Header */}
-                    <div className="text-center mb-12">
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
+                    <div className="text-center mb-8 md:mb-12">
+                        <motion.h1 
+                            initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             className="text-4xl md:text-6xl font-bold mb-4 tracking-tight"
                         >
                             Support My Work
                         </motion.h1>
-                        <motion.p 
+                        <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.1 }}

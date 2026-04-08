@@ -80,8 +80,8 @@ export default function ChatPage() {
             <WebGLBackground />
             <Header />
 
-            <div className="flex-grow flex items-center justify-center px-4 sm:px-6 pt-32 pb-20 relative z-10">
-                <div className="max-w-2xl w-full text-center">
+            <div className="flex-grow flex flex-col px-4 sm:px-6 pt-32 md:pt-40 pb-20 relative z-10 w-full max-w-2xl mx-auto">
+                <div className="w-full text-center">
                     
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}

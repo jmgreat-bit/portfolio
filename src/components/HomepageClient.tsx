@@ -32,8 +32,8 @@ interface HomepageClientProps {
 
 export default function HomepageClient({ homepageData, recentProjects }: HomepageClientProps) {
     return (
-        <div className="flex-grow flex flex-col justify-center px-6 pt-32 pb-20 max-w-[1400px] mx-auto w-full z-10">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="flex-grow flex flex-col px-4 sm:px-6 pt-24 md:pt-48 pb-20 max-w-[1400px] mx-auto w-full z-10">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-start">
 
                 {/* Left Column: Headline */}
                 <motion.div
@@ -44,22 +44,22 @@ export default function HomepageClient({ homepageData, recentProjects }: Homepag
                     <div className="text-cyan-400 font-bold tracking-[0.2em] text-xs uppercase mb-6">
                         {homepageData.tagline}
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-8 tracking-tight">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15] mb-6 md:mb-8 tracking-tight">
                         {homepageData.headline}
                     </h1>
-                    <p className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
+                    <p className="text-slate-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl mb-8 md:mb-10">
                         {homepageData.subheadline}
                     </p>
 
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-start">
                         {homepageData.ctaButtons?.map((button, index) => (
                             <MagneticButton key={index}>
                                 <Link
                                     href={button.link}
                                     className={
                                         button.style === 'primary'
-                                            ? "px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-bold text-white shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:shadow-[0_0_30px_rgba(6,182,212,0.7)] transition-shadow"
-                                            : "px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold hover:bg-white/10 transition-colors"
+                                            ? "inline-flex justify-center items-center px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-bold text-white shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:shadow-[0_0_30px_rgba(6,182,212,0.7)] transition-shadow"
+                                            : "inline-flex justify-center items-center px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base border border-white/10 rounded-full font-bold hover:bg-white/10 transition-colors"
                                     }
                                 >
                                     {button.label}
@@ -76,16 +76,16 @@ export default function HomepageClient({ homepageData, recentProjects }: Homepag
                     transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                     className="flex justify-center lg:justify-end"
                 >
-                    <div className="w-full max-w-md bg-[#0f172a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
+                    <div className="w-full max-w-md bg-[#0f172a]/80 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-3xl p-5 sm:p-8 shadow-2xl">
                         <div className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-8">
                             Signal Board
                         </div>
 
-                        <div className="space-y-8">
+                        <div className="space-y-6 sm:space-y-8">
                             {homepageData.stats?.map((stat, index) => (
                                 <div key={index}>
-                                    <div className="text-5xl font-bold text-white mb-1">{stat.value}</div>
-                                    <div className="text-slate-400 text-sm">{stat.label}</div>
+                                    <div className="text-3xl sm:text-5xl font-bold text-white mb-1">{stat.value}</div>
+                                    <div className="text-slate-400 text-xs sm:text-sm">{stat.label}</div>
                                 </div>
                             ))}
                         </div>
@@ -104,16 +104,16 @@ export default function HomepageClient({ homepageData, recentProjects }: Homepag
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-32 relative"
+                className="mt-16 md:mt-32 relative"
             >
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-purple-500/5 blur-3xl -z-10 rounded-[100px]"></div>
                 
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
                     <div className="text-cyan-400 font-bold tracking-[0.2em] text-xs uppercase mb-4">
                         Cognitive Domains
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Beyond Traditional Engineering</h2>
-                    <p className="text-slate-400 text-lg leading-relaxed">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 tracking-tight">Beyond Traditional Engineering</h2>
+                    <p className="text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed">
                         This platform isn't just a portfolio; it's a living archive of my evolving intelligence. By merging deep research and data analytics with creative innovation, I build systems that don't just work—they pioneer new frontiers.
                     </p>
                 </div>
