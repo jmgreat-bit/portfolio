@@ -99,6 +99,65 @@ export default function HomepageClient({ homepageData, recentProjects }: Homepag
 
             </div>
 
+            {/* Core Disciplines Section (Intelligence & Innovation) */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="mt-32 relative"
+            >
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-purple-500/5 blur-3xl -z-10 rounded-[100px]"></div>
+                
+                <div className="text-center max-w-3xl mx-auto mb-16">
+                    <div className="text-cyan-400 font-bold tracking-[0.2em] text-xs uppercase mb-4">
+                        Cognitive Domains
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Beyond Traditional Engineering</h2>
+                    <p className="text-slate-400 text-lg leading-relaxed">
+                        This platform isn't just a portfolio; it's a living archive of my evolving intelligence. By merging deep research and data analytics with creative innovation, I build systems that don't just work—they pioneer new frontiers.
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                    {[
+                        {
+                            title: "Deep Research",
+                            description: "Investigating emerging technologies and theoretical frameworks to stay ahead of the curve, ensuring every project is backed by profound understanding.",
+                            icon: (
+                                <svg className="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                            ),
+                            colorClass: "hover:border-cyan-500/50 hover:bg-cyan-500/5",
+                        },
+                        {
+                            title: "Advanced Analytics",
+                            description: "Transforming raw noise into actionable intelligence. Leveraging complex data to uncover hidden patterns and drive precision decision-making.",
+                            icon: (
+                                <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            ),
+                            colorClass: "hover:border-blue-500/50 hover:bg-blue-500/5",
+                        },
+                        {
+                            title: "Creative Innovation",
+                            description: "Bridging the gap between raw logic and human experience. Crafting highly aesthetic, intuitive, and dynamic digital environments.",
+                            icon: (
+                                <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            ),
+                            colorClass: "hover:border-purple-500/50 hover:bg-purple-500/5",
+                        }
+                    ].map((domain, i) => (
+                        <div key={i} className={`group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-500 ${domain.colorClass}`}>
+                            <div className="w-16 h-16 rounded-2xl bg-black/40 border border-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                                {domain.icon}
+                            </div>
+                            <h3 className="text-2xl font-bold mb-4 text-white">{domain.title}</h3>
+                            <p className="text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
+                                {domain.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </motion.div>
+
             {/* Bottom Section: Recent Explorations */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
