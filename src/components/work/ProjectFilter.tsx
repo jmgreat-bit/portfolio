@@ -23,7 +23,7 @@ export default function ProjectFilter({ projects }: ProjectFilterProps) {
     return (
         <div className="space-y-10">
             {/* Tabs */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2 sm:gap-4">
                 {tabs.map((tab) => (
                     <button
                         key={tab}
@@ -44,7 +44,7 @@ export default function ProjectFilter({ projects }: ProjectFilterProps) {
             </div>
 
             {/* Grid */}
-            <motion.div layout className="grid gap-6 md:grid-cols-2">
+            <motion.div layout className="grid gap-4 sm:gap-6 md:grid-cols-2">
                 <AnimatePresence mode="popLayout">
                     {filteredProjects.map((project) => (
                         <ProjectCard key={project.title.name} className="flex flex-col h-full">
@@ -59,8 +59,8 @@ export default function ProjectFilter({ projects }: ProjectFilterProps) {
                                 </div>
                             </div>
                             <div className="mt-4 flex-grow space-y-3">
-                                <h3 className="text-2xl font-semibold text-white">{project.title.name}</h3>
-                                <p className="text-white/70">{project.description}</p>
+                                <h3 className="text-lg sm:text-2xl font-semibold text-white">{project.title.name}</h3>
+                                <p className="text-white/70 text-sm sm:text-base">{project.description}</p>
                             </div>
                             <Link
                                 href={project.link ?? "#"}

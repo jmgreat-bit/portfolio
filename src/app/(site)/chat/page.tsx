@@ -88,10 +88,10 @@ export default function ChatPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="mb-12"
                     >
-                        <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 tracking-tight">
                             Initiate <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Dialogue</span>
                         </h1>
-                        <p className="text-slate-400 text-lg">
+                        <p className="text-slate-400 text-sm sm:text-base md:text-lg">
                             Whether you have an ambitious project or just want to explore ideas, I'm always open to discussing new frontiers.
                         </p>
                     </motion.div>

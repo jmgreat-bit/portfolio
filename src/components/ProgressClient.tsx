@@ -39,10 +39,10 @@ export default function ProgressClient({ updates }: ProgressClientProps) {
     };
 
     return (
-        <div className="flex-grow pt-32 px-6 pb-20 max-w-3xl mx-auto w-full">
-            <div className="text-center mb-16">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Public Progress</h1>
-                <p className="text-slate-400">Building in public. One commit at a time.</p>
+        <div className="flex-grow pt-24 md:pt-32 px-4 sm:px-6 pb-20 max-w-3xl mx-auto w-full">
+            <div className="text-center mb-8 md:mb-16">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Public Progress</h1>
+                <p className="text-slate-400 text-sm sm:text-base">Building in public. One commit at a time.</p>
             </div>
 
             <div className="space-y-8">
@@ -56,7 +56,7 @@ export default function ProgressClient({ updates }: ProgressClientProps) {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-white/20 transition-colors"
+                            className="p-4 sm:p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-white/20 transition-colors"
                         >
                             <div className="flex items-center justify-between mb-4">
                                 <div className="text-sm text-cyan-400 font-mono">
@@ -78,7 +78,7 @@ export default function ProgressClient({ updates }: ProgressClientProps) {
                                 </div>
                             )}
 
-                            <h3 className="text-xl font-bold mb-2">{update.title.name}</h3>
+                            <h3 className="text-base sm:text-xl font-bold mb-2">{update.title.name}</h3>
 
                             {update.videoUrl && (
                                 <a

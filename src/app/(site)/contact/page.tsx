@@ -27,14 +27,14 @@ export default function ContactPage() {
             <WebGLBackground />
             <Header />
 
-            <div className="flex-grow flex items-center justify-center px-6 pt-20 pb-10">
+            <div className="flex-grow flex items-center justify-center px-4 sm:px-6 pt-24 md:pt-20 pb-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="w-full max-w-xl bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl"
+                    className="w-full max-w-xl bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl"
                 >
-                    <h1 className="text-3xl md:text-4xl font-bold mb-2">Let's Build the Future</h1>
-                    <p className="text-slate-400 mb-8">Have a project in mind? I'm ready to help.</p>
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Let's Build the Future</h1>
+                    <p className="text-slate-400 text-sm sm:text-base mb-6 md:mb-8">Have a project in mind? I'm ready to help.</p>
 
                     {isSubmitSuccessful ? (
                         <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-xl text-green-200 text-center">

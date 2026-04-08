@@ -31,7 +31,7 @@ export default function SupportPage() {
                         <motion.h1 
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-4xl md:text-6xl font-bold mb-4 tracking-tight"
+                            className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 tracking-tight"
                         >
                             Support My Work
                         </motion.h1>
@@ -39,7 +39,7 @@ export default function SupportPage() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.1 }}
-                            className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-light"
+                            className="text-slate-400 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-light"
                         >
                             Fuel the next big idea. Choose a platform below to contribute to the
                             ongoing experiments and open-source tools.
