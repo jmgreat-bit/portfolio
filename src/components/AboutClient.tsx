@@ -30,7 +30,7 @@ export default function AboutClient({ aboutData }: AboutClientProps) {
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 md:mb-8"
+                    className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight"
                 >
                     {aboutData.pageTitle}
                 </motion.h1>
@@ -56,7 +56,7 @@ export default function AboutClient({ aboutData }: AboutClientProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="prose prose-invert prose-sm sm:prose-base md:prose-lg text-slate-300"
+                    className="text-slate-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl space-y-6"
                 >
                     {/* Story content would be rendered here if using MDX */}
                     <p>
@@ -80,7 +80,7 @@ export default function AboutClient({ aboutData }: AboutClientProps) {
                         transition={{ delay: 0.2 }}
                         className="mt-12"
                     >
-                        <h2 className="font-bold mb-4 md:mb-6 text-cyan-400 uppercase tracking-widest text-xs sm:text-sm">Skills</h2>
+                        <h2 className="text-xs font-bold text-cyan-400 uppercase tracking-[0.2em] mb-4 md:mb-8">Skills</h2>
                         <div className="flex flex-wrap gap-3">
                             {aboutData.skills.map((skill, i) => (
                                 <span
@@ -98,7 +98,7 @@ export default function AboutClient({ aboutData }: AboutClientProps) {
             {/* Timeline Section */}
             {aboutData.timeline && aboutData.timeline.length > 0 && (
                 <section>
-                    <h2 className="font-bold mb-8 md:mb-12 text-cyan-400 uppercase tracking-widest text-xs sm:text-sm">Timeline</h2>
+                    <h2 className="text-xs font-bold text-cyan-400 uppercase tracking-[0.2em] mb-8 md:mb-12">Timeline</h2>
                     <div className="relative border-l border-white/10 ml-3 space-y-12">
                         {aboutData.timeline.map((item, i) => (
                             <motion.div
@@ -111,8 +111,8 @@ export default function AboutClient({ aboutData }: AboutClientProps) {
                             >
                                 <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
                                 <div className="text-sm font-mono text-slate-500 mb-1">{item.year}</div>
-                                <h3 className="text-base sm:text-xl font-bold mb-2">{item.title}</h3>
-                                <p className="text-slate-400 text-sm sm:text-base">{item.description}</p>
+                                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">{item.title}</h3>
+                                <p className="text-slate-400 text-sm md:text-base">{item.description}</p>
                             </motion.div>
                         ))}
                     </div>

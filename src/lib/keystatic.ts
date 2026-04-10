@@ -63,13 +63,13 @@ export async function getHomepageData() {
     const homepage = await reader.singletons.homepage.read();
     if (!homepage) {
         return {
-            tagline: 'Creative Technologist & Director',
-            headline: 'Building humane systems, cinematic web experiences, and lightweight 3D moments.',
-            subheadline: 'I help ambitious teams craft Stripe-level polish with bespoke motion, agent-friendly workflows, and calm product direction.',
+            tagline: 'APPLIED PHYSICS STUDENT & AI BUILDER',
+            headline: 'Building intelligent systems, AI-driven tools, and infrastructure for society.',
+            subheadline: 'I combine physics-based logic with rapid AI prototyping to explore the intersection of technology and human inclusion. From writing my first line of code to training LLMs and competing globally in under two years.',
             available: true,
             ctaButtons: [
-                { label: 'Hire Me', link: '/work', style: 'primary' },
-                { label: 'Collaborate', link: '/work', style: 'secondary' },
+                { label: 'Explore Projects', link: '/work', style: 'primary' },
+                { label: 'Ideas & Insights', link: '/ideas', style: 'secondary' },
                 { label: 'Support My Work', link: '/support', style: 'secondary' },
             ],
             stats: [
@@ -78,7 +78,7 @@ export async function getHomepageData() {
                 { value: '90+', label: 'Stories captured' },
             ],
             explorationsTagline: 'Ideas in Motion',
-            explorationsHeadline: 'Recent explorations',
+            explorationsHeadline: 'Active Endeavors & R&D',
             explorationsDescription: 'A sampling of live projects, R&D experiments, and cinematic web builds.',
         };
     }
@@ -95,8 +95,10 @@ export async function getAboutData() {
             skills: [] as readonly string[],
             profileImage: undefined,
             timeline: [
-                { year: '2025', title: 'The Genius Era', description: 'Launched this portfolio. Started building autonomous design agents.' },
-                { year: '2024', title: 'Senior Engineer', description: 'Led frontend architecture at TechCorp. Mastered Next.js and WebGL.' },
+                { year: 'August 2024', title: 'Zero to Global', description: 'Wrote my first line of code. Within 60 days, learned Python, automation, and API integration to build a multi-signal news platform from scratch.' },
+                { year: 'Late 2025', title: 'Deep Learning & AI', description: 'Transitioned into AI architecture, competing in a Google DeepMind hackathon to build custom LLM trainers and stress-test reasoning models.' },
+                { year: 'Early 2026', title: 'Global Competitions', description: 'Handled complex, unstructured data in the Kaggle Akkadian Translation challenge and built an AI-driven orbital analyzer for a global Space Copilot challenge.' },
+                { year: 'Present', title: 'The Physics of Trust', description: 'Merging my Applied Physics studies with software to build infrastructure for financial inclusion and critical societal systems.' },
             ] as const,
         };
     }

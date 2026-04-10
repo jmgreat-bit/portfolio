@@ -14,7 +14,7 @@ export default async function ProjectsPage() {
             <div className="flex-grow pt-24 md:pt-32 px-4 sm:px-6 pb-20 max-w-7xl mx-auto w-full">
                 <div className="mb-8 md:mb-16">
                     <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4">Selected Works</h1>
-                    <p className="text-slate-400 max-w-xl text-sm sm:text-base md:text-lg">
+                    <p className="text-slate-400 max-w-xl text-xs sm:text-sm md:text-base lg:text-lg">
                         A collection of experiments, tools, and visual explorations.
                     </p>
                 </div>

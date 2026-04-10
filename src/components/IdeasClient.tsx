@@ -30,9 +30,10 @@ export default function IdeasClient({ insights }: IdeasClientProps) {
     if (insights.length === 0) {
         return (
             <div className="flex-grow pt-24 md:pt-32 px-4 sm:px-6 pb-20 max-w-6xl mx-auto w-full">
-                <div className="text-center">
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Ideas & Insights</h1>
-                    <p className="text-slate-400">No insights yet. Add some in the Keystatic dashboard!</p>
+                <div className="text-center mb-12">
+                    <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-4 tracking-tight">The Digital Garden</h1>
+                    <p className="text-slate-400 text-xs sm:text-sm md:text-base lg:text-xl mb-8 max-w-2xl mx-auto">Raw thoughts, research logs, and "vibe coding" revelations. A live archive of my evolving understanding of AI, physics, and global systems.</p>
+                    <p className="text-slate-500 text-sm italic">No insights yet. Add some in the Keystatic dashboard!</p>
                 </div>
             </div>
         );
@@ -40,11 +41,15 @@ export default function IdeasClient({ insights }: IdeasClientProps) {
 
     return (
         <div className="flex-grow pt-24 md:pt-32 px-4 sm:px-6 pb-20 max-w-6xl mx-auto w-full">
-            <div className="grid md:grid-cols-12 gap-6 md:gap-12 md:h-[calc(100vh-200px)]">
+            <div className="text-center mb-8 md:mb-12">
+                <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-4 tracking-tight">The Digital Garden</h1>
+                <p className="text-slate-400 text-xs sm:text-sm md:text-base lg:text-xl max-w-2xl mx-auto">Raw thoughts, research logs, and "vibe coding" revelations. A live archive of my evolving understanding of AI, physics, and global systems.</p>
+            </div>
+            <div className="grid md:grid-cols-12 gap-6 md:gap-12 md:h-[calc(100vh-320px)]">
 
                 {/* Sidebar List */}
                 <div className="md:col-span-4 md:border-r border-white/10 md:pr-6 overflow-y-auto custom-scrollbar">
-                    <h2 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-8">Latest Insights</h2>
+                    <h2 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-8">Latest Insights</h2>
                     <div className="space-y-4">
                         {insights.map((insight) => (
                             <button
@@ -56,7 +61,7 @@ export default function IdeasClient({ insights }: IdeasClientProps) {
                                     }`}
                             >
                                 <div className="text-sm text-cyan-400 mb-1">{formatDate(insight.date)}</div>
-                                <div className="font-semibold text-base sm:text-lg">{insight.title.name}</div>
+                                <div className="font-bold text-base sm:text-lg">{insight.title.name}</div>
                                 {insight.tags && insight.tags.length > 0 && (
                                     <div className="flex flex-wrap gap-2 mt-2">
                                         {insight.tags.slice(0, 3).map((tag, i) => (
@@ -83,7 +88,7 @@ export default function IdeasClient({ insights }: IdeasClientProps) {
                                 transition={{ duration: 0.3 }}
                                 className="prose prose-invert prose-lg max-w-none"
                             >
-                                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">{activeInsight.title.name}</h1>
+                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4 tracking-tight">{activeInsight.title.name}</h1>
 
                                 {activeInsight.featuredImage && (
                                     <div className="relative w-full h-64 mb-6 rounded-xl overflow-hidden">
@@ -107,7 +112,7 @@ export default function IdeasClient({ insights }: IdeasClientProps) {
                                     </a>
                                 )}
 
-                                <p className="text-slate-400">
+                                <p className="text-slate-400 text-sm md:text-base">
                                     Content will be rendered here from MDX. Edit this insight in the Keystatic dashboard.
                                 </p>
                             </motion.div>

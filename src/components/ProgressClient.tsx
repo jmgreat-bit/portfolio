@@ -41,8 +41,8 @@ export default function ProgressClient({ updates }: ProgressClientProps) {
     return (
         <div className="flex-grow pt-24 md:pt-32 px-4 sm:px-6 pb-20 max-w-3xl mx-auto w-full">
             <div className="text-center mb-8 md:mb-16">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Public Progress</h1>
-                <p className="text-slate-400 text-sm sm:text-base">Building in public. One commit at a time.</p>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4">Public Progress</h1>
+                <p className="text-slate-400 text-xs sm:text-sm md:text-base">Building in public. One commit at a time.</p>
             </div>
 
             <div className="space-y-8">
@@ -78,7 +78,7 @@ export default function ProgressClient({ updates }: ProgressClientProps) {
                                 </div>
                             )}
 
-                            <h3 className="text-base sm:text-xl font-bold mb-2">{update.title.name}</h3>
+                            <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2">{update.title.name}</h3>
 
                             {update.videoUrl && (
                                 <a

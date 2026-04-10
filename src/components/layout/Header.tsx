@@ -26,8 +26,8 @@ export default function Header() {
                 <nav className="flex items-center gap-4 md:gap-8 px-5 md:px-8 py-3 md:py-4 bg-[#0f172a]/90 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl w-full max-w-[95vw] md:w-auto md:max-w-none">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 md:gap-3 mr-auto md:mr-4 group">
-                        <span className="text-cyan-400 font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">Studio</span>
-                        <span className="text-white font-bold text-sm md:text-lg tracking-tight group-hover:text-cyan-200 transition-colors">The Great Web</span>
+                        <span className="text-cyan-400 font-bold tracking-[0.2em] text-xs md:text-sm uppercase">Studio</span>
+                        <span className="text-white font-bold text-base md:text-xl tracking-tight group-hover:text-cyan-200 transition-colors">The Great Web</span>
                     </Link>
 
                     {/* Desktop Links */}
@@ -38,7 +38,7 @@ export default function Header() {
                                 <Link
                                     key={link.path}
                                     href={link.path}
-                                    className={`text-sm font-medium transition-colors relative ${isActive ? "text-white" : "text-slate-400 hover:text-white"
+                                    className={`text-base font-medium transition-colors relative ${isActive ? "text-white" : "text-slate-400 hover:text-white"
                                         }`}
                                 >
                                     {link.name}
@@ -104,7 +104,7 @@ export default function Header() {
                                         <Link
                                             href={link.path}
                                             onClick={() => setMobileOpen(false)}
-                                            className={`block text-center text-xl font-semibold py-3 px-8 rounded-2xl transition-all ${
+                                            className={`block text-center text-lg sm:text-xl font-semibold py-3 px-8 rounded-2xl transition-all ${
                                                 isActive
                                                     ? "text-cyan-400 bg-cyan-400/10"
                                                     : "text-slate-300 hover:text-white hover:bg-white/5"

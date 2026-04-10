@@ -44,10 +44,10 @@ export default function HomepageClient({ homepageData, recentProjects }: Homepag
                     <div className="text-cyan-400 font-bold tracking-[0.2em] text-xs uppercase mb-6">
                         {homepageData.tagline}
                     </div>
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15] mb-6 md:mb-8 tracking-tight">
+                    <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold leading-[1.15] mb-6 md:mb-8 tracking-tight">
                         {homepageData.headline}
                     </h1>
-                    <p className="text-slate-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl mb-8 md:mb-10">
+                    <p className="text-slate-400 text-xs sm:text-sm md:text-base lg:text-xl leading-relaxed max-w-2xl mb-8 md:mb-10">
                         {homepageData.subheadline}
                     </p>
 
@@ -84,8 +84,8 @@ export default function HomepageClient({ homepageData, recentProjects }: Homepag
                         <div className="space-y-6 sm:space-y-8">
                             {homepageData.stats?.map((stat, index) => (
                                 <div key={index}>
-                                    <div className="text-3xl sm:text-5xl font-bold text-white mb-1">{stat.value}</div>
-                                    <div className="text-slate-400 text-xs sm:text-sm">{stat.label}</div>
+                                    <div className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-1">{stat.value}</div>
+                                    <div className="text-slate-400 text-[11px] sm:text-xs md:text-sm">{stat.label}</div>
                                 </div>
                             ))}
                         </div>
@@ -112,8 +112,8 @@ export default function HomepageClient({ homepageData, recentProjects }: Homepag
                     <div className="text-cyan-400 font-bold tracking-[0.2em] text-xs uppercase mb-4">
                         Cognitive Domains
                     </div>
-                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 tracking-tight">Beyond Traditional Engineering</h2>
-                    <p className="text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6 tracking-tight">Beyond Traditional Engineering</h2>
+                    <p className="text-slate-400 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed">
                         This platform isn't just a portfolio; it's a living archive of my evolving intelligence. By merging deep research and data analytics with creative innovation, I build systems that don't just work—they pioneer new frontiers.
                     </p>
                 </div>
@@ -149,8 +149,8 @@ export default function HomepageClient({ homepageData, recentProjects }: Homepag
                             <div className="w-16 h-16 rounded-2xl bg-black/40 border border-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                                 {domain.icon}
                             </div>
-                            <h3 className="text-2xl font-bold mb-4 text-white">{domain.title}</h3>
-                            <p className="text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
+                            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-white">{domain.title}</h3>
+                            <p className="text-slate-400 text-sm md:text-base leading-relaxed group-hover:text-slate-300 transition-colors">
                                 {domain.description}
                             </p>
                         </div>
@@ -168,8 +168,8 @@ export default function HomepageClient({ homepageData, recentProjects }: Homepag
                 <div className="text-cyan-400 font-bold tracking-[0.2em] text-xs uppercase mb-4">
                     {homepageData.explorationsTagline}
                 </div>
-                <h2 className="text-4xl font-bold mb-4">{homepageData.explorationsHeadline}</h2>
-                <p className="text-slate-400 mb-12">{homepageData.explorationsDescription}</p>
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4">{homepageData.explorationsHeadline}</h2>
+                <p className="text-slate-400 text-xs sm:text-sm md:text-base mb-12">{homepageData.explorationsDescription}</p>
 
                 {/* Recent Projects Grid */}
                 {recentProjects.length > 0 && (
@@ -190,11 +190,11 @@ export default function HomepageClient({ homepageData, recentProjects }: Homepag
                                         />
                                     </div>
                                 )}
-                                <h3 className="font-bold text-lg mb-2 group-hover:text-cyan-400 transition-colors">
+                                <h3 className="font-bold text-base sm:text-lg mb-2 group-hover:text-cyan-400 transition-colors">
                                     {project.title.name}
                                 </h3>
                                 {project.description && (
-                                    <p className="text-slate-400 text-sm line-clamp-2">{project.description}</p>
+                                    <p className="text-slate-400 text-xs sm:text-sm line-clamp-2">{project.description}</p>
                                 )}
                             </Link>
                         ))}

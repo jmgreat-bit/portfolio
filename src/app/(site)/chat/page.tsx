@@ -88,11 +88,11 @@ export default function ChatPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="mb-12"
                     >
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 tracking-tight">
+                        <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-4 tracking-tight">
                             Initiate <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Dialogue</span>
                         </h1>
-                        <p className="text-slate-400 text-sm sm:text-base md:text-lg">
-                            Whether you have an ambitious project or just want to explore ideas, I'm always open to discussing new frontiers.
+                        <p className="text-slate-400 text-xs sm:text-sm md:text-base lg:text-xl">
+                            Whether you want to brainstorm system architecture, collaborate on a hackathon, or discuss applied physics, I am always open to exploring new frontiers.
                         </p>
                     </motion.div>
 
@@ -109,10 +109,10 @@ export default function ChatPage() {
                                         {contact.icon}
                                     </div>
                                     <div className="ml-6 text-left flex-grow">
-                                        <h3 className={`text-xl font-bold mb-1 transition-all ${contact.isAction && copied ? 'text-green-400' : 'text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-300'}`}>
+                                        <h3 className={`text-lg sm:text-xl md:text-2xl font-bold mb-1 transition-all ${contact.isAction && copied ? 'text-green-400' : 'text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-300'}`}>
                                             {contact.name}
                                         </h3>
-                                        <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
+                                        <p className="text-sm md:text-base text-slate-400 group-hover:text-slate-300 transition-colors">
                                             {contact.description}
                                         </p>
                                     </div>

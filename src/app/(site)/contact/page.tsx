@@ -54,8 +54,8 @@ export default function ContactPage() {
                     animate={{ opacity: 1, y: 0 }}
                     className="w-full max-w-lg bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl"
                 >
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1">Let&apos;s Build the Future</h1>
-                    <p className="text-slate-400 text-sm sm:text-base mb-6">Have a project in mind? I&apos;m ready to help.</p>
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1">Let&apos;s Build the Future</h1>
+                    <p className="text-slate-400 text-xs sm:text-sm md:text-base mb-6">Have a project in mind? I&apos;m ready to help.</p>
 
                     <AnimatePresence mode="wait">
                         {formState === "success" ? (

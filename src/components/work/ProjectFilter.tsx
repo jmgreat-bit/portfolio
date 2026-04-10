@@ -60,7 +60,7 @@ export default function ProjectFilter({ projects }: ProjectFilterProps) {
                             </div>
                             <div className="mt-4 flex-grow space-y-3">
                                 <h3 className="text-lg sm:text-2xl font-semibold text-white">{project.title.name}</h3>
-                                <p className="text-white/70 text-sm sm:text-base">{project.description}</p>
+                                <p className="text-white/70 text-xs sm:text-sm md:text-base">{project.description}</p>
                             </div>
                             <Link
                                 href={project.link ?? "#"}
