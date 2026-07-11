@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { DocumentRenderer } from "@keystatic/core/renderer";
 
 interface TimelineItem {
     readonly year: string;
@@ -58,18 +59,22 @@ export default function AboutClient({ aboutData }: AboutClientProps) {
                     transition={{ delay: 0.1 }}
                     className="text-slate-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl space-y-6"
                 >
-                    {/* Story content would be rendered here if using MDX */}
-                    <p>
-                        I am a creative technologist obsessed with the intersection of design and code.
-                        I don&apos;t just build websites; I build immersive digital worlds.
-                    </p>
-                    <p>
-                        My philosophy is simple: <strong>Make it feel magic.</strong>
-                    </p>
-                    <p>
-                        Whether it&apos;s a subtle micro-interaction or a full-blown 3D environment,
-                        I believe the web should be an experience, not just a document.
-                    </p>
+                    {/* Story content rendered here */}
+                    <div className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-cyan-400 hover:prose-a:text-cyan-300">
+                        {aboutData.story ? (
+                            <DocumentRenderer document={aboutData.story as any} />
+                        ) : (
+                            <>
+                                <p>
+                                    I am a creative technologist obsessed with the intersection of design and code.
+                                    I don&apos;t just build websites; I build immersive digital worlds.
+                                </p>
+                                <p>
+                                    My philosophy is simple: <strong>Make it feel magic.</strong>
+                                </p>
+                            </>
+                        )}
+                    </div>
                 </motion.div>
 
                 {/* Skills */}

@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Project } from "@/types/project";
 import ProjectCard from "@/components/ui/ProjectCard";
 import Link from "next/link";
@@ -10,68 +9,97 @@ type ProjectFilterProps = {
     projects: Project[];
 };
 
-const tabs = ["All", "Live", "Building", "Idea"];
+const domainLabels: Record<string, string> = {
+    "information-intelligence": "Information Intelligence",
+    "artificial-intelligence": "Artificial Intelligence",
+    "commerce-finance": "Commerce & Finance",
+    "space-scientific": "Space & Scientific Computing",
+    "productivity": "Productivity",
+    "utilities": "Utilities",
+};
 
 export default function ProjectFilter({ projects }: ProjectFilterProps) {
-    const [activeTab, setActiveTab] = useState("All");
+    const featuredProjects = projects.filter(p => p.featured);
+    const experimentalProjects = projects.filter(p => !p.featured);
 
-    const filteredProjects = projects.filter((project) => {
-        if (activeTab === "All") return true;
-        return project.status.toLowerCase() === activeTab.toLowerCase();
-    });
+    const groupedExperiments = experimentalProjects.reduce((acc, project) => {
+        const domain = project.domain || "utilities";
+        if (!acc[domain]) acc[domain] = [];
+        acc[domain].push(project);
+        return acc;
+    }, {} as Record<string, Project[]>);
 
     return (
-        <div className="space-y-10">
-            {/* Tabs */}
-            <div className="flex flex-wrap gap-2 sm:gap-4">
-                {tabs.map((tab) => (
-                    <button
-                        key={tab}
-                        onClick={() => setActiveTab(tab)}
-                        className={`relative rounded-full px-6 py-2 text-sm font-medium transition-colors ${activeTab === tab ? "text-white" : "text-slate-400 hover:text-white"
-                            }`}
-                    >
-                        {activeTab === tab && (
-                            <motion.div
-                                layoutId="activeTab"
-                                className="absolute inset-0 rounded-full bg-white/10 border border-white/10"
-                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                            />
-                        )}
-                        <span className="relative z-10">{tab}</span>
-                    </button>
-                ))}
-            </div>
+        <div className="space-y-24">
+            {/* Featured Projects */}
+            {featuredProjects.length > 0 && (
+                <section>
+                    <h2 className="text-sm font-bold text-cyan-400 uppercase tracking-[0.2em] mb-8 border-b border-white/10 pb-4">
+                        Featured Research & Products
+                    </h2>
+                    <div className="grid gap-6 md:grid-cols-2">
+                        {featuredProjects.map((project) => (
+                            <ProjectCard key={project.title.name} className="flex flex-col h-full bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-colors">
+                                <div className="flex items-center justify-between text-sm text-white/60">
+                                    <span className={`uppercase tracking-[0.2em] text-xs px-2 py-1 rounded-md border ${
+                                        project.maturity === 'live' ? 'border-green-500/50 text-green-400' :
+                                        project.maturity === 'production' ? 'border-blue-500/50 text-blue-400' :
+                                        'border-orange-500/50 text-orange-400'
+                                    }`}>
+                                        {project.maturity}
+                                    </span>
+                                    <span className="text-xs text-slate-400">{domainLabels[project.domain] || project.domain}</span>
+                                </div>
+                                <div className="mt-4 flex-grow space-y-3">
+                                    <h3 className="text-xl sm:text-2xl font-bold text-white">{project.title.name}</h3>
+                                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">{project.description}</p>
+                                </div>
+                                <Link
+                                    href={`/projects/${project.slug}`}
+                                    className="mt-6 inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors font-semibold"
+                                >
+                                    Read Case Study <span className="ml-2">→</span>
+                                </Link>
+                            </ProjectCard>
+                        ))}
+                    </div>
+                </section>
+            )}
 
-            {/* Grid */}
-            <motion.div layout className="grid gap-4 sm:gap-6 md:grid-cols-2">
-                <AnimatePresence mode="popLayout">
-                    {filteredProjects.map((project) => (
-                        <ProjectCard key={project.title.name} className="flex flex-col h-full">
-                            <div className="flex items-center justify-between text-sm text-white/60">
-                                <span className="uppercase tracking-[0.3em] text-xs">{project.status}</span>
-                                <div className="flex flex-wrap gap-2 text-xs">
-                                    {project.tags.map((tag) => (
-                                        <span key={tag} className="rounded-full bg-white/10 px-3 py-1">
-                                            {tag}
-                                        </span>
+            {/* Experimental R&D grouped by Domain */}
+            {Object.keys(groupedExperiments).length > 0 && (
+                <section>
+                    <h2 className="text-sm font-bold text-purple-400 uppercase tracking-[0.2em] mb-12 border-b border-white/10 pb-4">
+                        Experimental R&D
+                    </h2>
+                    
+                    <div className="space-y-16">
+                        {Object.entries(groupedExperiments).map(([domainKey, domainProjects]) => (
+                            <div key={domainKey}>
+                                <h3 className="text-xl font-bold text-slate-200 mb-6 flex items-center gap-3">
+                                    <div className="w-8 h-[1px] bg-white/20"></div>
+                                    {domainLabels[domainKey] || domainKey}
+                                </h3>
+                                <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
+                                    {domainProjects.map((project) => (
+                                        <Link key={project.title.name} href={`/projects/${project.slug}`} className="block group">
+                                            <div className="flex flex-col h-full p-6 rounded-2xl bg-white/5 border border-white/5 group-hover:border-purple-500/30 group-hover:bg-white/10 transition-all duration-300">
+                                                <div className="flex items-center justify-between mb-4">
+                                                    <h4 className="text-lg font-bold text-white group-hover:text-purple-300 transition-colors">{project.title.name}</h4>
+                                                    <span className="text-[10px] uppercase tracking-wider text-slate-400 border border-slate-700 px-2 py-0.5 rounded-full">
+                                                        {project.maturity}
+                                                    </span>
+                                                </div>
+                                                <p className="text-slate-400 text-sm flex-grow">{project.description}</p>
+                                            </div>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>
-                            <div className="mt-4 flex-grow space-y-3">
-                                <h3 className="text-lg sm:text-2xl font-semibold text-white">{project.title.name}</h3>
-                                <p className="text-white/70 text-xs sm:text-sm md:text-base">{project.description}</p>
-                            </div>
-                            <Link
-                                href={project.link ?? "#"}
-                                className="mt-6 inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors"
-                            >
-                                View details <span className="ml-2">→</span>
-                            </Link>
-                        </ProjectCard>
-                    ))}
-                </AnimatePresence>
-            </motion.div>
+                        ))}
+                    </div>
+                </section>
+            )}
         </div>
     );
 }

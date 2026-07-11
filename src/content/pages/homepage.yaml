@@ -1,0 +1,23 @@
+tagline: Independent AI Research & Product Development
+headline: "Building intelligent systems across information, commerce, finance, robotics, computer vision, and scientific computing."
+subheadline: "I conduct independent R&D across five domains. My focus is on answering complex questions: How can AI make sense of complex information? How can automation solve real-world problems? How can intelligent systems help people make better decisions?"
+available: true
+ctaButtons:
+  - label: View Projects
+    link: /projects
+    style: primary
+  - label: Contact Me
+    link: /contact
+    style: secondary
+stats:
+  - value: 3+
+    label: Major AI platforms
+  - value: "60"
+    label: Days to build ENFOCO
+  - value: 5+
+    label: AI/automation projects
+  - value: "1"
+    label: Registered startup
+explorationsTagline: Real-world Systems
+explorationsHeadline: Recent architectures
+explorationsDescription: A sampling of live AI platforms, research experiments, and data pipelines.

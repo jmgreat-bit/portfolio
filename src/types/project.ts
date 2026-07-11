@@ -3,7 +3,9 @@ export type Project = {
     readonly description: string;
     readonly tags: readonly string[];
     readonly link?: string;
-    readonly status: "live" | "building" | "idea";
-    readonly type?: string;
+    readonly domain: string;
+    readonly maturity: string;
+    readonly featured: boolean;
     readonly image?: string;
+    readonly slug: string;
 };

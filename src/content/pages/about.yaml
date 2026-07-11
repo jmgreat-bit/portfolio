@@ -1,0 +1,32 @@
+pageTitle: The Story
+timeline:
+  - year: "2025"
+    title: The Beginning
+    description: Started exploring software development, AI tools, APIs, and automation from scratch.
+  - year: "2025"
+    title: Built ENFOCO
+    description: Built an AI-powered multilingual information intelligence platform in 60 days.
+  - year: "2025"
+    title: MarketPLC
+    description: Designed a hyperlocal commerce platform connecting nearby businesses and customers.
+  - year: "2025"
+    title: Global Challenges
+    description: Participated in international AI, space, and NLP hackathons while developing independent research projects.
+  - year: "2026"
+    title: Founder & AI Systems Builder
+    description: Building MarketPLC and expanding ENFOCO into a broader information intelligence platform.
+skills:
+  - Python
+  - Next.js
+  - React
+  - Supabase
+  - PostgreSQL
+  - LLMs
+  - n8n
+  - APIs
+story: |
+  I design and build AI-powered platforms that transform fragmented data into useful systems — from multilingual news intelligence and hyperlocal commerce networks to alternative financial identity engines.
+
+  My philosophy is simple: **Build systems that solve real problems.**
+
+  Whether it's creating a global news intelligence platform in 60 days or engineering a hyperlocal commerce marketplace, I focus on shipping high-impact architectures.
