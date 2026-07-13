@@ -22,7 +22,8 @@ interface Project {
     readonly title: { readonly name: string };
     readonly description?: string | null;
     readonly image?: string | null;
-    readonly status: string;
+    readonly domain?: string;
+    readonly maturity?: string;
 }
 
 interface HomepageClientProps {

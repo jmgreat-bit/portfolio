@@ -27,10 +27,10 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
                 <header className="mb-16">
                     <div className="flex items-center gap-3 mb-6">
                         <span className="px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-400 text-xs font-bold uppercase tracking-wider">
-                            {project.status}
+                            {project.maturity}
                         </span>
                         <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-white/70 text-xs font-medium uppercase tracking-wider">
-                            {project.type}
+                            {project.domain}
                         </span>
                     </div>
 

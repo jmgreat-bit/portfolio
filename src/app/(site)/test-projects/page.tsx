@@ -12,8 +12,8 @@ export default async function TestPage() {
                 {projects.map((project, i) => (
                     <div key={i} className="border border-white p-4 rounded">
                         <h2 className="text-2xl font-bold">{project.title.name}</h2>
-                        <p className="text-sm text-gray-400">Status: {project.status}</p>
-                        <p className="text-sm text-gray-400">Type: {project.type}</p>
+                        <p className="text-sm text-gray-400">Status: {project.maturity}</p>
+                        <p className="text-sm text-gray-400">Type: {project.domain}</p>
                         <p className="mt-2">{project.description}</p>
                         <div className="flex gap-2 mt-2">
                             {project.tags.map((tag, j) => (
