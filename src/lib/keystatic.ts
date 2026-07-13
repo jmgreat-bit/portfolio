@@ -104,11 +104,25 @@ export async function getHomepageData() {
 // About
 export async function getAboutData() {
     const about = await reader.singletons.about.read();
+
+    // Bio text - hardcoded here because Keystatic's fields.document() ignores hand-edited YAML
+    const bioText = `Hi, I'm Uwingeneye James.
+
+I'm an independent AI systems builder based in Rwanda with a background in Applied Physics.
+
+A little over a year ago, I knew very little about modern software development. Curiosity led me into programming, then AI, and eventually into designing complete software systems. Since then I've built projects spanning multilingual information intelligence, computer vision, financial technology, commerce, natural language processing, and automation.
+
+I enjoy starting with difficult questions rather than familiar technologies. Instead of asking "What app should I build?", I usually ask "What problem hasn't been solved well?" Then I learn whatever tools are necessary to build a solution.
+
+Today my work focuses on creating intelligent systems that help people understand information, make decisions, and solve real-world problems. Whether it's mapping global news, helping local businesses grow, exploring AI for satellites, or building smarter computer vision systems, I'm interested in technology that has practical impact.
+
+Outside of coding, my background in physics continues to influence how I think. I enjoy exploring ideas about science, intelligence, space, and how complex systems emerge from simple rules.`;
+
     if (!about) {
         return {
             pageTitle: 'The Story',
             story: null,
-            storyText: null as string | null,
+            storyText: bioText,
             skills: [] as readonly string[],
             profileImage: undefined,
             timeline: [
@@ -119,42 +133,11 @@ export async function getAboutData() {
             ] as const,
         };
     }
-    
-    // Resolve the MDX/Document function to a plain object
-    const storyContent = typeof about.story === 'function' ? await about.story() : null;
-    
-    // Read raw YAML to extract story text directly (bypasses Keystatic document field parsing)
-    let storyText: string | null = null;
-    try {
-        const fs = await import('fs');
-        const path = await import('path');
-        const yamlPath = path.join(process.cwd(), 'src', 'content', 'pages', 'about.yaml');
-        const raw = fs.readFileSync(yamlPath, 'utf-8');
-        
-        // Parse the story field from the YAML
-        // The story field is stored as an array of {type, children: [{text}]} objects
-        const storyMatch = raw.match(/^story:\s*\n([\s\S]*?)(?=\n\S|\n*$)/m);
-        if (storyMatch) {
-            const storyBlock = storyMatch[1];
-            const textMatches = storyBlock.match(/- text:\s*"(.+?)"/g);
-            if (textMatches && textMatches.length > 0) {
-                const paragraphs = textMatches.map(m => {
-                    const match = m.match(/- text:\s*"(.+)"/);
-                    return match ? match[1].replace(/\\"/g, '"').replace(/\\'/g, "'") : '';
-                }).filter(Boolean);
-                if (paragraphs.length > 0) {
-                    storyText = paragraphs.join('\n\n');
-                }
-            }
-        }
-    } catch (e) {
-        // Silently fail - storyText stays null
-    }
 
     return {
         ...about,
-        story: storyContent,
-        storyText,
+        story: null,
+        storyText: bioText,
     };
 }
 
