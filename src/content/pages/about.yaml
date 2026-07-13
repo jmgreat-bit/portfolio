@@ -24,15 +24,22 @@ skills:
   - LLMs
   - n8n
   - APIs
-story: |
-  Hi, I'm Uwingeneye James.
-
-  I'm an independent AI systems builder based in Rwanda with a background in Applied Physics.
-
-  A little over a year ago, I knew very little about modern software development. Curiosity led me into programming, then AI, and eventually into designing complete software systems. Since then I've built projects spanning multilingual information intelligence, computer vision, financial technology, commerce, natural language processing, and automation.
-
-  I enjoy starting with difficult questions rather than familiar technologies. Instead of asking "What app should I build?", I usually ask "What problem hasn't been solved well?" Then I learn whatever tools are necessary to build a solution.
-
-  Today my work focuses on creating intelligent systems that help people understand information, make decisions, and solve real-world problems. Whether it's mapping global news, helping local businesses grow, exploring AI for satellites, or building smarter computer vision systems, I'm interested in technology that has practical impact.
-
-  Outside of coding, my background in physics continues to influence how I think. I enjoy exploring ideas about science, intelligence, space, and how complex systems emerge from simple rules.
+story:
+  - type: paragraph
+    children:
+      - text: "Hi, I'm Uwingeneye James."
+  - type: paragraph
+    children:
+      - text: "I'm an independent AI systems builder based in Rwanda with a background in Applied Physics."
+  - type: paragraph
+    children:
+      - text: "A little over a year ago, I knew very little about modern software development. Curiosity led me into programming, then AI, and eventually into designing complete software systems. Since then I've built projects spanning multilingual information intelligence, computer vision, financial technology, commerce, natural language processing, and automation."
+  - type: paragraph
+    children:
+      - text: "I enjoy starting with difficult questions rather than familiar technologies. Instead of asking \"What app should I build?\", I usually ask \"What problem hasn't been solved well?\" Then I learn whatever tools are necessary to build a solution."
+  - type: paragraph
+    children:
+      - text: "Today my work focuses on creating intelligent systems that help people understand information, make decisions, and solve real-world problems. Whether it's mapping global news, helping local businesses grow, exploring AI for satellites, or building smarter computer vision systems, I'm interested in technology that has practical impact."
+  - type: paragraph
+    children:
+      - text: "Outside of coding, my background in physics continues to influence how I think. I enjoy exploring ideas about science, intelligence, space, and how complex systems emerge from simple rules."
