@@ -108,6 +108,7 @@ export async function getAboutData() {
         return {
             pageTitle: 'The Story',
             story: null,
+            storyText: null as string | null,
             skills: [] as readonly string[],
             profileImage: undefined,
             timeline: [
@@ -122,24 +123,32 @@ export async function getAboutData() {
     // Resolve the MDX/Document function to a plain object
     const storyContent = typeof about.story === 'function' ? await about.story() : null;
     
-    // Extract plain text from the story AST as a fallback
+    // Read raw YAML to extract story text directly (bypasses Keystatic document field parsing)
     let storyText: string | null = null;
-    if (Array.isArray(storyContent)) {
-        const paragraphs = storyContent
-            .filter((node: any) => node?.type === 'paragraph' && node?.children?.[0]?.text)
-            .map((node: any) => node.children.map((c: any) => c.text || '').join(''));
-        if (paragraphs.length > 0 && paragraphs.some((p: string) => p.trim())) {
-            storyText = paragraphs.join('\n\n');
+    try {
+        const fs = await import('fs');
+        const path = await import('path');
+        const yamlPath = path.join(process.cwd(), 'src', 'content', 'pages', 'about.yaml');
+        const raw = fs.readFileSync(yamlPath, 'utf-8');
+        
+        // Parse the story field from the YAML
+        // The story field is stored as an array of {type, children: [{text}]} objects
+        const storyMatch = raw.match(/^story:\s*\n([\s\S]*?)(?=\n\S|\n*$)/m);
+        if (storyMatch) {
+            const storyBlock = storyMatch[1];
+            const textMatches = storyBlock.match(/- text:\s*"(.+?)"/g);
+            if (textMatches && textMatches.length > 0) {
+                const paragraphs = textMatches.map(m => {
+                    const match = m.match(/- text:\s*"(.+)"/);
+                    return match ? match[1].replace(/\\"/g, '"').replace(/\\'/g, "'") : '';
+                }).filter(Boolean);
+                if (paragraphs.length > 0) {
+                    storyText = paragraphs.join('\n\n');
+                }
+            }
         }
-    }
-    // If story is stored as a raw YAML array of objects with text
-    if (!storyText && Array.isArray(about.story)) {
-        const paragraphs = (about.story as any[])
-            .filter((node: any) => node?.children?.[0]?.text)
-            .map((node: any) => node.children.map((c: any) => c.text || '').join(''));
-        if (paragraphs.length > 0) {
-            storyText = paragraphs.join('\n\n');
-        }
+    } catch (e) {
+        // Silently fail - storyText stays null
     }
 
     return {
