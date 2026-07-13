@@ -122,9 +122,30 @@ export async function getAboutData() {
     // Resolve the MDX/Document function to a plain object
     const storyContent = typeof about.story === 'function' ? await about.story() : null;
     
+    // Extract plain text from the story AST as a fallback
+    let storyText: string | null = null;
+    if (Array.isArray(storyContent)) {
+        const paragraphs = storyContent
+            .filter((node: any) => node?.type === 'paragraph' && node?.children?.[0]?.text)
+            .map((node: any) => node.children.map((c: any) => c.text || '').join(''));
+        if (paragraphs.length > 0 && paragraphs.some((p: string) => p.trim())) {
+            storyText = paragraphs.join('\n\n');
+        }
+    }
+    // If story is stored as a raw YAML array of objects with text
+    if (!storyText && Array.isArray(about.story)) {
+        const paragraphs = (about.story as any[])
+            .filter((node: any) => node?.children?.[0]?.text)
+            .map((node: any) => node.children.map((c: any) => c.text || '').join(''));
+        if (paragraphs.length > 0) {
+            storyText = paragraphs.join('\n\n');
+        }
+    }
+
     return {
         ...about,
         story: storyContent,
+        storyText,
     };
 }
 

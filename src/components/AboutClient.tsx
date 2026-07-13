@@ -13,6 +13,7 @@ interface TimelineItem {
 interface AboutData {
     readonly pageTitle: string;
     readonly story: unknown;
+    readonly storyText?: string | null;
     readonly skills: readonly string[];
     readonly profileImage?: string | null;
     readonly timeline: readonly TimelineItem[];
@@ -61,8 +62,12 @@ export default function AboutClient({ aboutData }: AboutClientProps) {
                 >
                     {/* Story content rendered here */}
                     <div className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-cyan-400 hover:prose-a:text-cyan-300">
-                        {aboutData.story ? (
+                        {aboutData.story && Array.isArray(aboutData.story) && aboutData.story.length > 0 && aboutData.story.some((node: any) => node?.children?.[0]?.text) ? (
                             <DocumentRenderer document={aboutData.story as any} />
+                        ) : aboutData.storyText ? (
+                            aboutData.storyText.split('\n\n').filter(Boolean).map((paragraph: string, i: number) => (
+                                <p key={i}>{paragraph.trim()}</p>
+                            ))
                         ) : (
                             <>
                                 <p>
